@@ -36,6 +36,7 @@ function generateTHead(table) {
 function createTable(table) {
 	for (let user of userData) {
 		let row = table.insertRow();
+		row.setAttribute('class', 'User')
 
 		for (key in user) {
 			if (key === 'name' || key === 'status' || key === 'date')
@@ -51,33 +52,44 @@ function createTable(table) {
 
 function sortUsers() {
 	console.log('sortUsers')
-	let table = document.querySelector('table')
-	let switching = true
+	// let table = document.querySelector('table')
+	// let switching = true
 
-	while (switching) {
-		let i=0
-		switching = false
-		let rows = table.rows
-		// console.log(rows)
+	// while (switching) {
+	// 	let i=0
+	// 	switching = false
+	// 	let rows = table.rows
+	// 	// console.log(rows)
 
-		let Switch = false
-		for (i=1; i<(rows.length-1); i++) {
+	// 	let Switch = false
+	// 	for (i=1; i<(rows.length-1); i++) {
 
-			a = rows[i].getElementsByTagName('td')[2]
-			b = rows[i+1].getElementsByTagName('td')[2]
-			// console.log(a.innerText, b.innerHTML)
+	// 		a = rows[i].getElementsByTagName('td')[2]
+	// 		b = rows[i+1].getElementsByTagName('td')[2]
+	// 		// console.log(a.innerText, b.innerHTML)
 
-			if (a.innerHTML.toLowerCase() > b.innerHTML.toLowerCase()) {
-				Switch = true
-				break
-			}
+	// 		if (a.innerHTML.toLowerCase() > b.innerHTML.toLowerCase()) {
+	// 			Switch = true
+	// 			break
+	// 		}
+	// 	}
+
+	// 	if (Switch) {
+	// 		rows[i].parentNode.insertBefore(rows[i+1], rows[i])
+	// 		switching = true
+	// 	}
+	// }
+
+	userData.sort(function(a, b) {
+		// console.log(a.status, b.status)
+		// console.log(a.name, b.name)
+		if (a.status == b.status) {
+			return (a.name > b.name) ? 1 : -1
 		}
+		return (a.status > b.status) ? 1 : -1
+	})
 
-		if (Switch) {
-			rows[i].parentNode.insertBefore(rows[i+1], rows[i])
-			switching = true
-		}
-	}
+	// console.log(userData)
 
 }
 
