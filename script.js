@@ -47,32 +47,15 @@ function createTable(table) {
 			}
 		}
 	}
-	generateTHead(table)
+	// generateTHead(table)
 }
 
 function updateTable() {
+	document.querySelector("#unsorted tbody").remove();
+	// document.querySelector("#unsorted thead").remove();
 	tbl = document.getElementById('unsorted')
-	tbl.remove()
-	// createTable(table)
+	createTable(tbl)
 
-	let body = document.getElementsByTagName('body')[0]
-	let table = document.createElement('table')
-	for (let user of userData) {
-		let row = table.insertRow();
-		row.setAttribute('class', 'User')
-
-		for (key in user) {
-			if (key === 'name' || key === 'status' || key === 'date')
-			{
-				let cell = row.insertCell();
-				let text = document.createTextNode(user[key]);
-				cell.appendChild(text)
-			}
-		}
-	}
-	generateTHead(table)
-
-	body.appendChild(table)
 
 }
 
@@ -103,7 +86,7 @@ function generateTable() {
 	let table = document.createElement('table')
 
 	createTable(table)
-	// generateTHead(table)
+	generateTHead(table)
 	table.setAttribute('id', 'unsorted')
 
 	let firstButton = document.getElementById('first_button')
