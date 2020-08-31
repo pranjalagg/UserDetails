@@ -50,20 +50,48 @@ function createTable(table) {
 	generateTHead(table)
 }
 
+function updateTable() {
+	tbl = document.getElementById('unsorted')
+	tbl.remove()
+	// createTable(table)
+
+	let body = document.getElementsByTagName('body')[0]
+	let table = document.createElement('table')
+	for (let user of userData) {
+		let row = table.insertRow();
+		row.setAttribute('class', 'User')
+
+		for (key in user) {
+			if (key === 'name' || key === 'status' || key === 'date')
+			{
+				let cell = row.insertCell();
+				let text = document.createTextNode(user[key]);
+				cell.appendChild(text)
+			}
+		}
+	}
+	generateTHead(table)
+
+	body.appendChild(table)
+
+}
+
 function convertDate(date) {
 	var split = date.split("/");
 	return (split[2] + split[1] + split[0]);
 }
 
 function sortUsers() {
-	console.log('sortUsers')
-
 	userData.sort(function(a, b) {
 		if (a.status == b.status) {
 			return (convertDate(a.date) > convertDate(b.date)) ? 1 : -1
 		}
 		return (a.status > b.status) ? 1 : -1
 	})
+
+	updateTable()
+	let sortButton = document.getElementsByTagName('button')[0]
+	sortButton.remove()
 
 	// console.log(userData)
 
@@ -75,6 +103,8 @@ function generateTable() {
 	let table = document.createElement('table')
 
 	createTable(table)
+	// generateTHead(table)
+	table.setAttribute('id', 'unsorted')
 
 	let firstButton = document.getElementById('first_button')
 	firstButton.remove()
