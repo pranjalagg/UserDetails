@@ -6,17 +6,17 @@ fetch(url)
 	.then(res => res.json())
 	.then((d) => {
 		userData = d.list
+		removeLoading()
 	})
 	.catch(err => console.log('Error: ' + err))
 
 
-// var data
-// const appendData(d) => {
-// 	data = d.list
-// 	data.forEach(user => {
+function removeLoading() {
+	let loading = document.getElementById('loading')
+	document.getElementById('first_button').disabled = false
 
-// 	})
-// }
+	loading.remove()
+}
 
 function generateTHead(table) {
 	headings = ['Name', 'Date', 'Status']
@@ -55,6 +55,8 @@ function generateTable() {
 	generateTHead(table)
 	let firstButton = document.getElementById('first_button')
 	firstButton.remove()
+	// let para = document.getElementById('loading')
+	// para.remove()
 
 
 
