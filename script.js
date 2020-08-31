@@ -33,12 +33,7 @@ function generateTHead(table) {
 }
 
 
-function generateTable() {
-	let body = document.getElementsByTagName('body')[0]
-
-	let table = document.createElement('table')
-
-	// generateTHead(table)
+function createTable(table) {
 	for (let user of userData) {
 		let row = table.insertRow();
 
@@ -51,12 +46,18 @@ function generateTable() {
 			}
 		}
 	}
-
 	generateTHead(table)
+}
+
+function generateTable() {
+	let body = document.getElementsByTagName('body')[0]
+
+	let table = document.createElement('table')
+
+	createTable(table)
+
 	let firstButton = document.getElementById('first_button')
 	firstButton.remove()
-	// let para = document.getElementById('loading')
-	// para.remove()
 
 
 
