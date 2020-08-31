@@ -49,6 +49,38 @@ function createTable(table) {
 	generateTHead(table)
 }
 
+function sortUsers() {
+	console.log('sortUsers')
+	let table = document.querySelector('table')
+	let switching = true
+
+	while (switching) {
+		let i=0
+		switching = false
+		let rows = table.rows
+		// console.log(rows)
+
+		let Switch = false
+		for (i=1; i<(rows.length-1); i++) {
+
+			a = rows[i].getElementsByTagName('td')[2]
+			b = rows[i+1].getElementsByTagName('td')[2]
+			// console.log(a.innerText, b.innerHTML)
+
+			if (a.innerHTML.toLowerCase() > b.innerHTML.toLowerCase()) {
+				Switch = true
+				break
+			}
+		}
+
+		if (Switch) {
+			rows[i].parentNode.insertBefore(rows[i+1], rows[i])
+			switching = true
+		}
+	}
+
+}
+
 function generateTable() {
 	let body = document.getElementsByTagName('body')[0]
 
@@ -61,8 +93,11 @@ function generateTable() {
 
 	let sortButton = document.createElement('button')
 	let sortButtonText = document.createTextNode('Sort')
+	sortButton.setAttribute('onclick', 'sortUsers()')
+
 	sortButton.appendChild(sortButtonText)
 
 	body.appendChild(table)
 	body.appendChild(sortButton)
+
 }
