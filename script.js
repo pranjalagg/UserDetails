@@ -59,7 +59,10 @@ function generateTable() {
 	let firstButton = document.getElementById('first_button')
 	firstButton.remove()
 
-
+	let sortButton = document.createElement('button')
+	let sortButtonText = document.createTextNode('Sort')
+	sortButton.appendChild(sortButtonText)
 
 	body.appendChild(table)
+	body.appendChild(sortButton)
 }
