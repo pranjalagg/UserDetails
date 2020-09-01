@@ -13,7 +13,6 @@ table {
     border: 1px solid #ddd;
     border-radius: 20px;
     position: relative;
-
 }
 
 table th{
@@ -36,6 +35,11 @@ td {
 }
 
 #gender {
+	text-transform: capitalize;
+	padding: 30px;
+}
+
+#status {
 	text-transform: capitalize;
 }
 
