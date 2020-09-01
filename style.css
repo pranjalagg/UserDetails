@@ -15,15 +15,21 @@ table {
     position: relative;
 }
 
-table th, td{
+table th{
     margin: 0;
     padding-bottom: 20px;
     text-align: left;
     text-transform: uppercase;
 }
 
+td {
+	margin: 0;
+    padding-bottom: 20px;
+    text-align: left;
+}
+
 #prof_pic {
-	width: 100px;
+	width: 50px;
 	border: 2px solid #555;
 	/*height: 100px;*/
 }
