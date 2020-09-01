@@ -34,6 +34,10 @@ td {
 	/*height: 100px;*/
 }
 
+#gender {
+	text-transform: uppercase;
+}
+
 #button, p {
     cursor: pointer;
     width:10%;

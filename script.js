@@ -52,6 +52,9 @@ function createTable(table) {
 				let cell = row.insertCell();
 				let text = document.createTextNode(user[key]);
 				cell.appendChild(text)
+				if (key === 'gender') {
+					cell.setAttribute('id', 'gender')
+				}
 			}
 		}
 	}
