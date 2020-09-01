@@ -52,7 +52,7 @@ function createTable(table) {
 				let cell = row.insertCell();
 				let text = document.createTextNode(user[key]);
 				cell.appendChild(text)
-				if (key === 'gender') {
+				if (key === 'gender' || key === 'status') {
 					cell.setAttribute('id', 'gender')
 				}
 			}
