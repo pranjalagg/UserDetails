@@ -10,7 +10,6 @@ table {
 	padding: 20px 0px 10px 30px;
 	width: 1000px;
 	margin: 30px auto;
-	/*border: 1px solid #ddd;*/
 	border: 1px solid #ddd;
 	border-radius: 20px;
 	position: relative;
@@ -53,6 +52,7 @@ p {
 }
 
 #button {
+	outline: none;
 	cursor: pointer;
 	width:10%;
 	margin-left:45%;
