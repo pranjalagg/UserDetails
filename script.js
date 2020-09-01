@@ -13,13 +13,13 @@ fetch(url)
 
 function removeLoading() {
 	let loading = document.getElementById('loading')
-	document.getElementById('first_button').disabled = false
+	document.getElementById('button').disabled = false
 
 	loading.remove()
 }
 
 function generateTHead(table) {
-	headings = ['Name', 'Date', 'Status']
+	headings = ['Name', 'Pic', 'Gender', 'Date', 'Status']
 
 	let thead = table.createTHead();
 	let row = thead.insertRow();
@@ -39,7 +39,15 @@ function createTable(table) {
 		row.setAttribute('class', 'User')
 
 		for (key in user) {
-			if (key === 'name' || key === 'status' || key === 'date')
+			if (key === 'img') {
+				let cell = row.insertCell()
+				let link = document.createElement('img')
+				link.setAttribute('src', user[key])
+				link.setAttribute('id', 'prof_pic')
+				cell.appendChild(link)
+			}
+
+			if (key === 'name' || key === 'gender' || key === 'date' || key === 'status')
 			{
 				let cell = row.insertCell();
 				let text = document.createTextNode(user[key]);
@@ -47,13 +55,15 @@ function createTable(table) {
 			}
 		}
 	}
-	// generateTHead(table)
+	generateTHead(table)
 }
 
 function updateTable() {
-	document.querySelector("#unsorted tbody").remove();
-	// document.querySelector("#unsorted thead").remove();
-	tbl = document.getElementById('unsorted')
+	// document.querySelector("#unsorted tbody").remove();
+	// // document.querySelector("#unsorted thead").remove();
+	// tbl = document.getElementById('unsorted')
+	var tbl = document.getElementById("unsorted");
+	tbl.innerHTML = "";
 	createTable(tbl)
 
 
@@ -86,15 +96,16 @@ function generateTable() {
 	let table = document.createElement('table')
 
 	createTable(table)
-	generateTHead(table)
+	// generateTHead(table)
 	table.setAttribute('id', 'unsorted')
 
-	let firstButton = document.getElementById('first_button')
+	let firstButton = document.getElementById('button')
 	firstButton.remove()
 
 	let sortButton = document.createElement('button')
 	let sortButtonText = document.createTextNode('Sort')
 	sortButton.setAttribute('onclick', 'sortUsers()')
+	sortButton.setAttribute('id', 'button')
 
 	sortButton.appendChild(sortButtonText)
 
