@@ -15,7 +15,7 @@ table {
     position: relative;
 }
 
-table th{
+th {
     margin: 0;
     padding-bottom: 20px;
     text-align: left;
@@ -43,18 +43,23 @@ td {
 	text-transform: capitalize;
 }
 
-#button, p {
-    cursor: pointer;
-    width:10%;
-    margin-left:45%;
-    margin-right:45%;
+p {
+    width:20%;
+    margin-left:40%;
+    margin-right:40%;
+    font-size: 20px;
+    text-align: center;
 }
 
 #button {
+    cursor: pointer;
+	width:10%;
+    margin-left:45%;
+    margin-right:45%;
     padding: 15px 32px;
 	border: none;
 	border: 2px solid #555555;
-
+    font-size: 16px;
 }
 
 #button:hover {
