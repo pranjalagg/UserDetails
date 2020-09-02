@@ -63,8 +63,6 @@ function createTable(table) {
 }
 
 function updateTable() {
-	// document.querySelector("#unsorted tbody").remove();
-	// // document.querySelector("#unsorted thead").remove();
 	// tbl = document.getElementById('unsorted')
 	var tbl = document.getElementById("unsorted");
 	tbl.innerHTML = "";
